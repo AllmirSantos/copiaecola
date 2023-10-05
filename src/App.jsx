@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Home } from "./pages/Home";
+import AplicationRoutes from "./routes";
 
 function App() {
   return (
     <>
-      <Home />
+      <AplicationRoutes />
     </>
   );
 }
