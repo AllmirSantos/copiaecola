@@ -1,35 +1,49 @@
-import { useState } from "react";
+import { BrowserRouter as Link } from "react-router-dom";
+
 import * as S from "./styles";
 
-export function Home() {
-  const [isOpenPopUp, setIsOpenPopUp] = useState(false);
-
-  function onOpenPopUp() {
-    setIsOpenPopUp(!isOpenPopUp);
-  }
+export default function Home() {
   return (
     <S.Container>
-      <h1>
-        #Copia e colar
-      </h1>
-      <button
-        onClick={() => {
-          onOpenPopUp(true);
-        }}
-      >
-        Entrar
-      </button>
-      <br />
-      <br />
-      {isOpenPopUp && <text>Hello </text>}
+      <h1>"Copia e Colar"</h1>
 
       <ul>
-        <li>Bottoes</li>
-        <li>Efeito click</li>
-        <li>Navegaçao</li>
-        <li>Usar Theme</li>
-        <li>Animaçoes</li>
-        <li>Outros</li>
+        <li>
+          <Link to={"/botaos"} className="nav-link">
+            Bottoes
+          </Link>
+        </li>
+
+        <li>
+          <Link to={"/botaos"} className="nav-link">
+            Inputs{" "}
+          </Link>
+        </li>
+        <li>
+          <Link to={"/botaos"} className="nav-link">
+            Efeito click{" "}
+          </Link>
+        </li>
+        <li>
+          <Link to={"/botaos"} className="nav-link">
+            Navegaçao{" "}
+          </Link>
+        </li>
+        <li>
+          <Link to={"/botaos"} className="nav-link">
+            Usar Theme{" "}
+          </Link>
+        </li>
+        <li>
+          <Link to={"/botaos"} className="nav-link">
+            Animaçoes{" "}
+          </Link>
+        </li>
+        <li>
+          <Link to={"/botaos"} className="nav-link">
+            Outros
+          </Link>
+        </li>
       </ul>
     </S.Container>
   );

@@ -12,20 +12,8 @@ export const Container = styled.aside`
     color: #15e84c;
     font-size: 50px;
     font-family: "Courier New", Courier, monospace;
-  }
-  button {
-    background-color: red;
-    padding: 20px;
-    color: #fff;
-  }
-  text {
-    background-color: #121212;
-    height: 50%;
-    width: 50%;
-    position: absolute;
-    display: flex;
-    -webkit-animation: fade-in-top 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-    animation: fade-in-top 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    width: 90%;
+    text-align: center;
   }
   ul {
     padding: 0px;
@@ -42,7 +30,6 @@ export const Container = styled.aside`
     animation: fade-in-top 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 
     li {
-      padding: 25px 20px;
       width: fit-content;
       margin: 0px;
       list-style: none;
@@ -51,6 +38,10 @@ export const Container = styled.aside`
       border: solid 2px #15e84c;
       cursor: pointer;
       transition: 1s;
+      a {
+        padding: 25px 20px;
+        display: block;
+      }
 
       &:hover {
         animation: 1s;
@@ -61,6 +52,12 @@ export const Container = styled.aside`
       border: solid 2px #1597e8;
       &:hover {
         background-color: #1597e8;
+      }
+    }
+    li:nth-of-type(3n) {
+      border: solid 2px #e8155b;
+      &:hover {
+        background-color: #e8155b;
       }
     }
   }
