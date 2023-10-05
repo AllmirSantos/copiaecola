@@ -1,4 +1,3 @@
-import { useState } from "react";
 import AplicationRoutes from "./routes";
 
 function App() {

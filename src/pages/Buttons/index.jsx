@@ -1,28 +1,23 @@
-import { useState } from "react";
 import * as S from "./styles";
-import WeeklyModal from "../../components/Modal";
+import ButtonSimple from "../../components/buttons/buttonSimple";
 
 export default function Buttons() {
-  const [isOpenPopUp, setIsOpenPopUp] = useState(false);
-  function onOpenPopUp() {
-    setIsOpenPopUp(!isOpenPopUp);
-  }
-
-  const handleClose = () => setIsOpenPopUp(false);
-
   return (
     <S.Container>
       <h1>Botoes</h1>
-      <button
-        onClick={() => {
-          onOpenPopUp(true);
-        }}
-      >
-        Entrar
-      </button>
-      <br />
-      <br />
-      <WeeklyModal handleClose={handleClose} open={isOpenPopUp} />
+      <ButtonSimple
+        title="Hello"
+        bgColor="green"
+        bgColorActive="pink"
+        colorFont="pink"
+        colorFontActive="green"
+        width="200px"
+        height="50px"
+        radius="10px"
+        fontSize="16px"
+        padding="5px"
+        shadow="#ffffff7e"
+      />
     </S.Container>
   );
 }

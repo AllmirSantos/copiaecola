@@ -25,11 +25,10 @@ export const ContainerModal = styled.aside`
     flex-direction: column;
     max-width: 80%;
     .boxButtonExemple {
-      color: #09ac5d;
       justify-content: center;
       align-items: center;
       display: flex;
-      padding: 20px;
+      padding: 8px 0px 15px 0px;
     }
     .contentModalBox {
       display: flex;
@@ -38,13 +37,92 @@ export const ContainerModal = styled.aside`
       section {
         background-color: #070813;
         display: flex;
-        flex: 1;
+        flex: 10;
         flex-direction: column;
         overflow: hidden;
         border-radius: 8px;
+        justify-content: center;
+        transition: 1s;
+        position: static;
+        .btnExpandedRight {
+          position: absolute;
+          border-radius: 100%;
+          width: 50px;
+          height: 50px;
+          background-color: #09ac5d;
+          border: none;
+          color: #e8e8e8;
+          font-size: 25px;
+          cursor: pointer;
+          animation-name: breath-animation-left;
+          transition: 1s;
+          animation-duration: 1s;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: -24px;
+        }
+        @keyframes breath-animation-left {
+          0% {
+            height: 50px;
+            width: 50px;
+            margin-left: -60px;
+          }
+          50% {
+            height: 20px;
+            width: 20px;
+            margin-left: -27px;
+          }
+          100% {
+            height: 50px;
+            width: 50px;
+          }
+        }
+        .btnExpandedLeft {
+          position: absolute;
+          border-radius: 100%;
+          width: 50px;
+          height: 50px;
+          background-color: #09ac5d;
+          border: none;
+          color: #e8e8e8;
+          font-size: 25px;
+          cursor: pointer;
+          z-index: 3;
+          margin-left: -60px;
+          transition: 1s;
+          animation-name: breath-animation-right;
+          animation-duration: 1s;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        @keyframes breath-animation-right {
+          0% {
+            height: 50px;
+            width: 50px;
+            margin-left: -24px;
+          }
+          50% {
+            height: 20px;
+            width: 20px;
+            margin-left: -27px;
+          }
+          100% {
+            height: 50px;
+            width: 50px;
+          }
+        }
       }
       section:nth-of-type(2) {
-        margin-left: 10px;
+        margin-left: 35px;
+      }
+      .sectionOpen {
+        transition: 1s;
+        flex: 10 !important;
+      }
+      .sectionClose {
+        flex: 2;
       }
       div {
         background-color: #051a3c;

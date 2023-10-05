@@ -3,8 +3,21 @@ import Modal from "@mui/material/Modal";
 import React from "../../images/react.svg";
 
 import { ContainerModal } from "./style";
+import { useState } from "react";
 
-export default function WeeklyModal({ open, handleClose, weeklyFeed }) {
+export default function WeeklyModal({
+  open,
+  handleClose,
+  codeIndex,
+  codeStyle,
+  exemple,
+}) {
+  const [isOpenPopUp, setIsOpenPopUp] = useState(false);
+
+  function onOpenPopUp() {
+    setIsOpenPopUp(!isOpenPopUp);
+  }
+
   return (
     <Modal
       open={open}
@@ -15,89 +28,43 @@ export default function WeeklyModal({ open, handleClose, weeklyFeed }) {
       <Box>
         <ContainerModal>
           <section className="contentModal">
-            <div className="boxButtonExemple">Botao aqui</div>
+            <div className="boxButtonExemple">{exemple}</div>
             <div className="contentModalBox">
-              <section>
+              <section
+                className={(isOpenPopUp && "sectionClose") || "sectionOpen"}
+              >
                 <div>
                   <img className="imgLogo" src={React} alt="24" />
                   <p>index.tsx</p>
                 </div>
                 <pre>
-                  <code className="code">
-                    {`
-import { useState } from "react";
-import * as S from "./styles";
-import WeeklyModal from "../../components/Modal";
-
-export default function Buttons() {
-  const [isOpenPopUp, setIsOpenPopUp] = useState(false);
-  function onOpenPopUp() {
-    setIsOpenPopUp(!isOpenPopUp);
-  }
-
-  const handleClose = () => setIsOpenPopUp(false);
-
-  return (
-    <S.Container>
-      <h1>Botoes</h1>
-      <button
-        onClick={() => {
-          onOpenPopUp(true);
-        }}
-      >
-        Entrar
-      </button>
-      <br />
-      <br />
-      <WeeklyModal handleClose={handleClose} open={isOpenPopUp} />
-    </S.Container>
-  );
-}
-`}
-                  </code>
+                  <code className="code">{codeIndex}</code>
                 </pre>
               </section>
-              <section>
+              <section
+                className={(isOpenPopUp && "sectionOpen") || "sectionClose"}
+              >
                 <div className="boxHeaderStyle">
                   <img className="imgLogo" src={React} alt="24" />
                   <p>style.tsx</p>
                 </div>
+                <button
+                  className={
+                    (isOpenPopUp && "btnExpandedLeft") || "btnExpandedRight"
+                  }
+                  onClick={() => {
+                    onOpenPopUp(true);
+                  }}
+                >
+                  +
+                </button>
+
                 <pre>
-                  <code className="code">
-                    {`
-import { useState } from "react";
-import * as S from "./styles";
-import WeeklyModal from "../../components/Modal";
-
-export default function Buttons() {
-  const [isOpenPopUp, setIsOpenPopUp] = useState(false);
-  function onOpenPopUp() {
-    setIsOpenPopUp(!isOpenPopUp);
-  }
-
-  const handleClose = () => setIsOpenPopUp(false);
-
-  return (
-    <S.Container>
-      <h1>Botoes</h1>
-      <button
-        onClick={() => {
-          onOpenPopUp(true);
-        }}
-      >
-        Entrar
-      </button>
-      <br />
-      <br />
-      <WeeklyModal handleClose={handleClose} open={isOpenPopUp} />
-    </S.Container>
-  );
-}
-`}
-                  </code>
+                  <code className="code">{codeStyle}</code>
                 </pre>
               </section>
             </div>
+
             <div className="btnClose">
               <button onClick={handleClose}>Fechar</button>
             </div>

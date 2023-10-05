@@ -1,15 +1,8 @@
-import { useState } from "react";
-
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 import * as S from "./styles";
 
 export default function Home() {
-  const [isOpenPopUp, setIsOpenPopUp] = useState(false);
-
-  function onOpenPopUp() {
-    setIsOpenPopUp(!isOpenPopUp);
-  }
   return (
     <S.Container>
       <h1>"Copia e Colar"</h1>
