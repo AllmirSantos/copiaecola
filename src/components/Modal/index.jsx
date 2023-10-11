@@ -4,13 +4,21 @@ import React from "../../images/react.svg";
 
 import { ContainerModal } from "./style";
 import { useState } from "react";
+import { styled } from "@mui/material/styles";
+
+const ModalCode = styled(Modal)({
+  "& .MuiModal-backdrop": {
+    backgroundColor: "transparent",
+  },
+});
 
 export default function WeeklyModal({
   open,
   handleClose,
   codeIndex,
   codeStyle,
-  exemple,
+  packages,
+  obs,
 }) {
   const [isOpenPopUp, setIsOpenPopUp] = useState(false);
 
@@ -19,16 +27,15 @@ export default function WeeklyModal({
   }
 
   return (
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
+    <ModalCode open={open} onClose={handleClose}>
       <Box>
         <ContainerModal>
           <section className="contentModal">
-            <div className="boxButtonExemple">{exemple}</div>
+            <div className="boxButtonExemple">
+              <div className="Packages">
+                <pre>{packages}</pre>
+              </div>
+            </div>
             <div className="contentModalBox">
               <section
                 className={(isOpenPopUp && "sectionClose") || "sectionOpen"}
@@ -37,8 +44,8 @@ export default function WeeklyModal({
                   <img className="imgLogo" src={React} alt="24" />
                   <p>index.tsx</p>
                 </div>
-                <pre>
-                  <code className="code">{codeIndex}</code>
+                <pre className="preIndex">
+                  <code className="code ">{codeIndex}</code>
                 </pre>
               </section>
               <section
@@ -59,8 +66,8 @@ export default function WeeklyModal({
                   +
                 </button>
 
-                <pre>
-                  <code className="code">{codeStyle}</code>
+                <pre className="preStyle">
+                  <code className="code language-css">{codeStyle} </code>
                 </pre>
               </section>
             </div>
@@ -71,6 +78,6 @@ export default function WeeklyModal({
           </section>
         </ContainerModal>
       </Box>
-    </Modal>
+    </ModalCode>
   );
 }

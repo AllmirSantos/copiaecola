@@ -1,48 +1,62 @@
 import styled from "styled-components";
 
+import { colors } from "../../theme";
+
 export const ContainerModal = styled.aside`
   display: flex;
   position: absolute;
-  overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  max-height: 100vh;
   z-index: 3;
   justify-content: center;
   align-items: center;
+  background-color: ${colors.background};
 
   .contentModal {
     position: relative;
     z-index: 2;
-    height: auto;
+    height: calc(100vh - 130px);
     width: auto;
     display: flex;
     justify-content: center;
     border: none;
-    background-color: #232231;
-    padding: 10px;
-    border: solid 1px #09ac5d;
+    background-color: var(--theme-bg-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 10px 30px;
+    border: solid 1px #09ac5d71;
     border-radius: 10px;
     flex-direction: column;
     max-width: 80%;
+    margin-top: 40px;
+    box-shadow: 0px 0px 90px -50px #09ac5d;
     .boxButtonExemple {
       justify-content: center;
       align-items: center;
       display: flex;
       padding: 8px 0px 15px 0px;
+      height: 80px;
+      span {
+        width: 100%;
+        height: 80px;
+        background-color: transparent;
+        position: absolute;
+        z-index: 1;
+      }
     }
     .contentModalBox {
       display: flex;
       flex-direction: row;
       color: #e8e8e8;
       section {
-        background-color: #070813;
+        background-color: #282936;
         display: flex;
         flex: 10;
         flex-direction: column;
         overflow: hidden;
-        border-radius: 8px;
+        border-radius: 10px;
         justify-content: center;
-        transition: 1s;
+        transition: 0.8s;
         position: static;
         .btnExpandedRight {
           position: absolute;
@@ -55,8 +69,8 @@ export const ContainerModal = styled.aside`
           font-size: 25px;
           cursor: pointer;
           animation-name: breath-animation-left;
-          transition: 1s;
-          animation-duration: 1s;
+          transition: 0.8s;
+          animation-duration: 0.8s;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -90,9 +104,9 @@ export const ContainerModal = styled.aside`
           cursor: pointer;
           z-index: 3;
           margin-left: -60px;
-          transition: 1s;
+          transition: 0.8s;
           animation-name: breath-animation-right;
-          animation-duration: 1s;
+          animation-duration: 0.8s;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -118,17 +132,30 @@ export const ContainerModal = styled.aside`
         margin-left: 35px;
       }
       .sectionOpen {
-        transition: 1s;
+        transition: 0.8s;
         flex: 10 !important;
+        ::-webkit-scrollbar {
+          width: 8px;
+          background-color: #282936;
+        }
+        ::-webkit-scrollbar-thumb {
+          background-color: #09ac5d;
+          border-radius: 3px;
+          border: solid 3px #282936;
+        }
       }
+
       .sectionClose {
         flex: 2;
+        pre {
+          overflow: hidden;
+        }
       }
       div {
-        background-color: #051a3c;
         display: flex;
         flex: 1;
         padding: 10px 15px;
+
         .imgLogo {
           width: 20px;
           padding-right: 10px;
@@ -138,18 +165,47 @@ export const ContainerModal = styled.aside`
         }
       }
 
-      .boxHeaderStyle {
-        background-color: #053c38 !important;
-      }
       .code {
         text-align: start;
       }
       pre {
-        height: 60vh;
+        max-height: calc(100vh - 320px);
         overflow-y: scroll;
-        padding: 00px 20px;
-        color: #c1bdce;
         font-size: 15px;
+        margin: 0px;
+        padding: 0px 10px;
+        background-color: #282936;
+        border-radius: 0px 0px 10px 10px;
+        overflow-x: hidden;
+      }
+      .preIndex {
+        border-top: solid 0.5px #09ac5d;
+      }
+      .preStyle {
+        border-top: solid 0.5px #09ac5d;
+      }
+    }
+    .Packages {
+      color: #fff;
+      padding: 0px 15px;
+      background-color: rgba(86, 86, 93, 0.344);
+      margin-top: 0px;
+      border-radius: 10px;
+      width: fit-content;
+      line-height: 20px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      pre {
+        padding: 0px;
+        margin-top: -10px;
+      }
+      p {
+        color: #09ac5d;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin: 0px 0px 4px 0px;
+        padding: 0px;
       }
     }
     .btnClose {
@@ -168,6 +224,20 @@ export const ContainerModal = styled.aside`
         color: #fff;
         box-shadow: 0px 0px 5px #0000001f;
         cursor: pointer;
+      }
+    }
+    .obsText {
+      color: #e9595b;
+      margin: 0px;
+      padding: 0px;
+      margin-bottom: -30px;
+      display: block;
+      p {
+        height: 60px;
+        margin: 0px;
+        line-height: 20px;
+        padding: 10px 0px;
+        font-size: 14px;
       }
     }
   }
