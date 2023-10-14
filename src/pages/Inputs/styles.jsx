@@ -22,6 +22,7 @@ export const Container = styled.aside`
     align-items: center;
     display: flex;
     overflow-y: scroll;
+    height: 100vh;
     background-color: #191923;
     z-index: 1;
   }

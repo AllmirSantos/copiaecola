@@ -13,6 +13,8 @@ export const Container = styled.aside`
     display: flex;
     gap: 10px;
     flex-direction: column;
+    height: 100vh;
+    padding-bottom: 40px;
     pre {
       margin: 5px 0px;
       margin-top: 15px;
@@ -34,13 +36,5 @@ export const Container = styled.aside`
     overflow-y: scroll;
     background-color: #191923;
     z-index: 1;
-  }
-`;
-
-export const Content = styled.div`
-  p {
-    display: flex;
-    color: #c5c5c5;
-    margin: 0px;
   }
 `;

@@ -69,7 +69,7 @@ export default function Home() {
             </Link>
           </li>
           <li>
-            <Link to={"/botaos"} className="nav-link">
+            <Link to={"/animations"} className="nav-link">
               Animaçoes{" "}
             </Link>
           </li>

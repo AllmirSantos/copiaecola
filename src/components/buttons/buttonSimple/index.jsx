@@ -13,6 +13,7 @@ export default function ButtonSimple({
   padding,
   borderColor,
   borderWidth,
+  onClick,
 }) {
   return (
     <>
@@ -29,7 +30,7 @@ export default function ButtonSimple({
         borderColor={borderColor}
         borderWidth={borderWidth}
       >
-        <button>
+        <button onClick={onClick}>
           <p>{title}</p>
         </button>
       </ContainerShirts>

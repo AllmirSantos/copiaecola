@@ -5,7 +5,9 @@ import { marked } from "marked";
 
 const copyComponent = `
   \`\`\`
-<Input name={"Email"} label={"Digite seu email"} type="email" />
+  <div>
+    <Input name={"Email"} label={"Digite seu email"} type="email" />
+</div>
   \`\`\`
 `;
 
@@ -73,7 +75,7 @@ export const Container = styled.aside\`
   & input {
     width: calc(100% - 16px);
   }
-\`
+\`;
   \`\`\`
 `;
 

@@ -1,6 +1,5 @@
 import * as S from "./styles";
-import ButtonSimple from "../../components/buttons/buttonSimple";
-import { CopyStile, CopyIndex, CopyComponent } from "./data";
+import Button from "../../components/buttons/button";
 
 export default function Buttons() {
   return (
@@ -8,8 +7,8 @@ export default function Buttons() {
       <section className="boxAll">
         <h1>Botoes</h1>
         <section>
-          <ButtonSimple
-            title="Button Simple"
+          <Button
+            title="Button"
             bgColor=""
             bgColorActive=""
             colorFont=""
@@ -21,21 +20,6 @@ export default function Buttons() {
             padding=""
             shadow=""
           />
-          <S.Content>
-            <pre>
-              <p>index.jsx</p>
-              <CopyIndex />
-            </pre>
-            <pre>
-              <p>style.jsx</p>
-              <CopyStile />
-            </pre>
-
-            <pre>
-              <p>Component</p>
-              <CopyComponent />
-            </pre>
-          </S.Content>
         </section>
       </section>
     </S.Container>

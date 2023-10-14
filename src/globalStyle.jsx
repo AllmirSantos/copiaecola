@@ -1,7 +1,7 @@
 // globalStyles.js
-import { createGlobalStyle } from "styled-components";
+import { styled, createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0px;
     padding: 0px;
@@ -31,31 +31,109 @@ a{
  * animation fade-in-top
  * ----------------------------------------
  */
-@-webkit-keyframes fade-in-top {
-  0% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes fade-in-top {
-  0% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-}
 
 `;
 
-export default GlobalStyle;
+export const Container = styled.aside`
+  display: flex;
+`;
+
+export const CodeView = styled.div`
+  display: flex;
+  color: #c5c5c5;
+  flex-direction: column;
+  border: 1px solid rgba(218, 224, 231, 0.168);
+  border-radius: 10px;
+  overflow: hidden;
+
+  pre {
+    margin: 0px !important;
+  }
+  code {
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+  }
+  .viewCode {
+    background-color: transparent;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      padding: 10px 15px;
+      border-bottom: 1px solid rgba(218, 224, 231, 0.168);
+      width: 696px;
+      margin-bottom: -1px;
+      span:nth-of-type(1) {
+        p {
+          margin: 0px;
+          color: #cecece;
+          border: 1px solid rgba(218, 224, 231, 0.168);
+          padding: 10px 20px;
+          border-radius: 7px;
+          &:hover {
+            background-color: #0280fe34;
+            color: #fff;
+            cursor: pointer;
+            border-color: #027ffe;
+          }
+        }
+        .codeOpen {
+          background-color: #0280fe34;
+          color: #fff;
+          cursor: pointer;
+          border-color: #027ffe;
+        }
+      }
+      span:nth-of-type(2) {
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        flex: 1;
+        gap: 10px;
+        p {
+          margin: 0px;
+          color: #cecece;
+          border: 1px solid rgba(218, 224, 231, 0.168);
+          padding: 10px 20px;
+          border-radius: 7px;
+          &:hover {
+            background-color: #15e84d20;
+            color: #fff;
+            cursor: pointer;
+            border-color: #15e84c;
+          }
+        }
+
+        .codeActive {
+          background-color: #15e84d20;
+          color: #fff;
+          cursor: pointer;
+          border-color: #15e84c;
+        }
+      }
+    }
+  }
+  .boxCodeView {
+    padding: 0px;
+    margin-bottom: -15px;
+    -webkit-animation: animationEffect 0.6s cubic-bezier(0.39, 0.575, 0.565, 1)
+      both;
+    animation: animationEffect 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  }
+  @-webkit-keyframes animationEffect {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes animationEffect {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+`;

@@ -44,6 +44,8 @@ export default function ButtonSimple({
   padding,
   borderColor,
   borderWidth,
+  onClick,
+
 }) {
   return (
     <>
@@ -59,6 +61,8 @@ export default function ButtonSimple({
         padding={padding}
         borderColor={borderColor}
         borderWidth={borderWidth}
+        onClick={onClick}
+
       >
         <button>
           <p>{title} </p>
