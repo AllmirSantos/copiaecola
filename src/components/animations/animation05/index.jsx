@@ -2,6 +2,8 @@ import * as S from "./styles";
 import * as T from "../../../globalStyle.jsx";
 import { CopyAnimationIndex, CopyAnimationStyle } from "./data";
 import { useState } from "react";
+import { ReactComponent as Menu } from "../../../images/menu.svg";
+import { ReactComponent as Close } from "../../../images/close.svg";
 
 export default function Animation05() {
   const [isOpenCode, setIsOpenCode] = useState(false);
@@ -33,14 +35,22 @@ export default function Animation05() {
                   "selectedMenuDisable"
                 }
               >
-                {(isSelectedMenu && <text>Close</text>) || <text>Open</text>}
+                {(isSelectedMenu && <Close className="imgMenu" />) || (
+                  <Menu className="imgMenu" />
+                )}
               </buton>
               <div
                 className={
                   (isSelectedMenu && "boxMenuActive") || "boxMenuDisable"
                 }
               >
-                <p>MENU</p>
+                <ul>
+                  <li>Menu 01</li>
+                  <li>Menu 02</li>
+                  <li>Menu 03</li>
+                  <li>Menu 04</li>
+                  <li>Menu 05</li>
+                </ul>
               </div>
             </div>
           </S.Animation>

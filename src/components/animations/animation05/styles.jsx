@@ -18,29 +18,54 @@ export const Animation = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    ul {
+      padding: 0px;
+      margin: 0px;
+      li {
+        margin: 0px;
+        padding: 9.8px 20px;
+        list-style: none;
+        height: 20px;
+        color: #0d0d0d;
+        border-bottom: 0.5px solid #c3c1c1;
+      }
+      li:last-child {
+        border-bottom: none;
+      }
+    }
     .selectedMenuActive {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 100%;
-      background-color: red;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       animation-duration: 0.5s;
       transition: 0.5s;
+      &:active {
+        background-color: #0280fec9;
+      }
+    }
+    .imgMenu {
+      width: 25px;
+      path {
+        fill: white;
+      }
     }
     .selectedMenuDisable {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: blue;
       cursor: pointer;
       animation-duration: 0.5s;
       transition: 0.5s;
+      &:active {
+        background-color: #0280fec9;
+      }
     }
     div {
       margin-top: 10px;

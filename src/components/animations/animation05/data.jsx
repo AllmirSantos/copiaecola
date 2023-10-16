@@ -7,48 +7,57 @@ const copyAnimationIndex = `
   \`\`\`
 import * as S from "./styles";
 import { useState } from "react";
+import { ReactComponent as Heart } from "../../../images/heart.svg";
+import { ReactComponent as HeartActive } from "../../../images/heart01.svg";
 
-export default function Animation03() {
-  const [selectedButtonNav, setSelectedButtonNav] = useState(0);
-  const isButtonNav01 = selectedButtonNav === 0;
-  const isButtonNav02 = selectedButtonNav === 1;
-  const isButtonNav03 = selectedButtonNav === 2;
+export default function Animation06() {
+  const [isOpenCode, setIsOpenCode] = useState(false);
+  function onOpenCode() {
+    setIsOpenCode(!isOpenCode);
+  }
+
+  const [isSelectedMenu, setIsSelectedMenu] = useState(false);
+  function onClickMenu() {
+    setIsSelectedMenu(!isSelectedMenu);
+  }
+
+  const [selectedButton, setSelectedButton] = useState(0);
+  const isButtonIndex = selectedButton === 0;
+  const isButtonStyle = selectedButton === 1;
 
   return (
     <S.Container>
       <pre>
-        <S.Animation>
-          <div className="boxNav">
-              <div>
-                <span
-                  key={0}
-                  onClick={() => setSelectedButtonNav(0)}
-                  className={(isButtonNav01 && "navActive") || "navDisable"}
-                >
-                  TAB 01
-                </span>
-                <span
-                  key={1}
-                  onClick={() => setSelectedButtonNav(1)}
-                  className={(isButtonNav02 && "navActive") || "navDisable"}
-                >
-                  TAB 02
-                </span>
-                <span
-                  key={2}
-                  onClick={() => setSelectedButtonNav(2)}
-                  className={(isButtonNav03 && "navActive") || "navDisable"}
-                >
-                  TAB 03
-                </span>
+          <S.Animation>
+            <div className="boxNav">
+              <buton
+                onClick={() => {
+                  onClickMenu(true);
+                }}
+                className={
+                  (isSelectedMenu && "selectedMenuActive") ||
+                  "selectedMenuDisable"
+                }
+              >
+                {(isSelectedMenu && <Close className="imgMenu" />) || (
+                  <Menu className="imgMenu" />
+                )}
+              </buton>
+              <div
+                className={
+                  (isSelectedMenu && "boxMenuActive") || "boxMenuDisable"
+                }
+              >
+                <ul>
+                  <li>Menu 01</li>
+                  <li>Menu 02</li>
+                  <li>Menu 03</li>
+                  <li>Menu 04</li>
+                  <li>Menu 05</li>
+                </ul>
               </div>
             </div>
-            <div className="boxNavSection">
-              {isButtonNav01 && <section className="tab">TAB 01</section>}
-              {isButtonNav02 && <section className="tab">TAB 02</section>}
-              {isButtonNav03 && <section className="tab">TAB 03</section>}
-            </div>
-        </S.Animation>
+          </S.Animation>
       </pre>
     </S.Container>
   );
@@ -59,7 +68,13 @@ export default function Animation03() {
 `;
 const copyAnimationStyle = `
   \`\`\`
-  export const Animation = styled.div\`
+import styled from "styled-components";
+
+export const Container = styled.aside\`
+  display: flex;
+\`;
+
+export const Animation = styled.div\`
   display: flex;
   flex-direction: column;
   padding: 15px;
@@ -72,68 +87,79 @@ const copyAnimationStyle = `
   .boxNav {
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    div {
-      border: 1px solid rgba(218, 224, 231, 0.168);
-      border-radius: 8px;
-      overflow: hidden;
-      height: 60px;
-      display: flex;
-      span:nth-of-type(1) {
-        border-left: none;
+    flex-direction: column;
+    ul {
+      padding: 0px;
+      margin: 0px;
+      li {
+        margin: 0px;
+        padding: 9.8px 20px;
+        list-style: none;
+        height: 20px;
+        color: #0d0d0d;
+        border-bottom: 0.5px solid #c3c1c1;
       }
-      span {
-        cursor: pointer;
-        display: flex;
-        color: #fff;
-        justify-content: center;
-        align-items: center;
-        padding: 0px 20px;
-        border-left: 1px solid rgba(218, 224, 231, 0.168);
-        font-size: 16px;
-        &:hover {
-          background-color: #0280fe26;
-          color: #fff;
-          cursor: pointer;
-        }
-      }
-      .navActive {
-        background-color: #0280fe75;
-        color: #fff;
-        cursor: pointer;
-        display: flex;
+      li:last-child {
+        border-bottom: none;
       }
     }
-  }
-  .boxNavSection {
-    height: 200px;
-    margin-top: 15px;
-    section {
-      height: 100%;
-      border-radius: 10px;
+    .selectedMenuActive {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 28px;
-      -webkit-animation: fade-in-top 0.6s cubic-bezier(0.39, 0.575, 0.565, 1)
-        both;
-      animation: fade-in-top 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+      cursor: pointer;
+      animation-duration: 0.5s;
+      transition: 0.5s;
+      &:active {
+        background-color: #0280fec9;
+      }
     }
-  }
-  @-webkit-keyframes fade-in-top {
-    0% {
-      opacity: 0;
+    .imgMenu {
+      width: 25px;
+      path {
+        fill: white;
+      }
     }
-    100% {
-      opacity: 1;
+    .selectedMenuDisable {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      animation-duration: 0.5s;
+      transition: 0.5s;
+      &:active {
+        background-color: #0280fec9;
+      }
     }
-  }
-  @keyframes fade-in-top {
-    0% {
-      opacity: 0;
+    div {
+      margin-top: 10px;
+      background-color: #fff;
+
+      p {
+        padding: 10px;
+        margin: 0px;
+        color: #0d0d0d;
+      }
     }
-    100% {
-      opacity: 1;
+    .boxMenuActive {
+      height: 200px;
+      width: 200px;
+      animation-duration: 0.5s;
+      transition: 0.5s;
+      overflow: hidden;
+    }
+    .boxMenuDisable {
+      height: 200px;
+      width: 0px;
+      animation-duration: 0.5s;
+      transition: 0.5s;
+      overflow: hidden;
     }
   }
 \`;

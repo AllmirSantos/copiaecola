@@ -4,6 +4,7 @@ import Animation02 from "../../components/animations/animation02";
 import Animation03 from "../../components/animations/animation03";
 import Animation04 from "../../components/animations/animation04";
 import Animation05 from "../../components/animations/animation05";
+import Animation06 from "../../components/animations/animation06";
 
 export default function Animations() {
   return (
@@ -16,6 +17,7 @@ export default function Animations() {
           <Animation03 />
           <Animation04 />
           <Animation05 />
+          <Animation06 />
         </section>
       </section>
     </S.Container>
